@@ -81,8 +81,9 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Home Page
+                    About Page
                 </div>
+
                 <div class="links">
                     <a href="{{url('/')}}">Home</a>
                     <a href="{{url('contact')}}">Contact</a>

@@ -11,9 +11,9 @@
 |
 */
 
-	Route::get('/', function () {
-	    return view('welcome');
-	});
+	Route::get('/','IndexController@index');
+	Route::get('about','IndexController@about');
+	Route::get('contact','IndexController@contact');
 
 	 Route::get('/calc',function(){
 	 	$a = 100;
@@ -32,7 +32,7 @@
 	 	return $c;
 	});
 
-	 Route::get('exam',function(){
+	 Route::get('exam1',function(){
 	 	//$names = array("www","xxx","yyy","zzz","aaa");
 	 	$names = "Examp";
 	 	return view('ab')->with(['names'=>$names]);
@@ -46,12 +46,13 @@
 	 });
 
 // Route::group(['middleware' => ['age']],function(){
-			
+
 // });
  // Route::prefix('user')->group(function(){
-	 	
+
  // });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
