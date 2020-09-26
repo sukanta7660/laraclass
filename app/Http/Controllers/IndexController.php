@@ -15,4 +15,7 @@ class IndexController extends Controller
     public function contact(){
     	return view('user.contact');
     }
+    public function blog(){
+    	return view('user.blog');
+    }
 }

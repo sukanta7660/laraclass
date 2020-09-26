@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('public/asset/')}}/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="{{asset('public/asset/')}}/fonts/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('public/asset/')}}/fonts/flaticon/font/flaticon.css">
-
+    @yield('style')
     <!-- Theme Style -->
     <link rel="stylesheet" href="{{asset('public/asset/')}}/css/style.css">
   </head>

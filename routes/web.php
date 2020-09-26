@@ -12,8 +12,13 @@
 */
 
 	Route::get('/','IndexController@index');
-	Route::get('about','IndexController@about');
-	Route::get('contact','IndexController@contact');
+	
+	Route::group(['middleware' => 'age'],function(){
+		Route::get('about','IndexController@about');
+		Route::get('contact','IndexController@contact');
+		Route::get('blog','IndexController@blog');
+	});
+
 
 
 
