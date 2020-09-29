@@ -18,4 +18,12 @@ class IndexController extends Controller
     public function blog(){
     	return view('user.blog');
     }
+
+    // admin
+    public function admin(){
+        return view('admin.dashboard');
+    }
+    public function example(){
+        return view('admin.example');
+    }
 }

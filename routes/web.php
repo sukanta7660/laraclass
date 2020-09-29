@@ -11,15 +11,18 @@
 |
 */
 
-	Route::get('/','IndexController@index');
+		Route::get('/','IndexController@index');
 	
-	Route::group(['middleware' => 'age'],function(){
+	// Route::group(['middleware' => 'age'],function(){
+		
+	// });
+
 		Route::get('about','IndexController@about');
-		Route::get('contact','IndexController@contact');
+		Route::get('contact','IndexController@contact')->name('contact');
 		Route::get('blog','IndexController@blog');
-	});
 
-
+		Route::get('admin-dashboard','IndexController@admin');
+		Route::get('admin-example','IndexController@example');
 
 
 

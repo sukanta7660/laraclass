@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('prity')
+@section('title','Home')
+@section('content')
 <section class="site-section pt-5 pb-5">
         <div class="container">
           <div class="row">

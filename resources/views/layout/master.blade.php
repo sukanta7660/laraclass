@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300, 400,700|Inconsolata:400,700" rel="stylesheet">
-
-    <link rel="stylesheet" href="{{asset('public/asset/')}}/css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset('public/asset')}}/css/bootstrap.css">
     <link rel="stylesheet" href="{{asset('public/asset/')}}/css/animate.css">
     <link rel="stylesheet" href="{{asset('public/asset/')}}/css/owl.carousel.min.css">
 
@@ -25,7 +24,7 @@
       @include('shared.user.header')
       
       <!-- END header -->
-      @yield('prity')
+      @yield('content')
       
     
       @include('shared.user.footer')

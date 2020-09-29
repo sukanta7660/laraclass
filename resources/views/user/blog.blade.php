@@ -6,6 +6,6 @@
 	}
 </style>
 @endsection
-@section('prity')
+@section('content')
  <h3 class="cls">I am blog page</h3>
 @endsection
