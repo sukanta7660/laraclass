@@ -15,9 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title',150);
-            $table->text('description')->nullable();
-            $table->integer('categoryID')->default(1);
+            $table->unsignedBigInteger('categoryID')->index();
+            $table->foreign('categoryID')->references('id')->on('categories')->onDelete('No Action')->onUpdate('No Action');
+            $table->string('title', 150);
+            $table->string('imageName', 50)->default('default.jpg');
+            $table->text('description');
+            $table->integer('userID');
             $table->timestamps();
         });
     }
