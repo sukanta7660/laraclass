@@ -21,8 +21,13 @@
 		Route::get('contact','IndexController@contact')->name('contact');
 		Route::get('blog','IndexController@blog');
 
-		Route::get('admin-dashboard','IndexController@admin');
-		Route::get('admin-example','IndexController@example');
+		Route::group(['prefix' => 'admin'],function(){
+			Route::get('dashboard','IndexController@admin');
+			Route::get('category','IndexController@category');
+			Route::get('create-category','IndexController@create_category_page');
+			Route::post('save-category','IndexController@save');
+		});
+		
 
 
 
