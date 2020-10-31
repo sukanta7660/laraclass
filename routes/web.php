@@ -12,9 +12,9 @@
 */
 
 		Route::get('/','IndexController@index');
-	
+
 	// Route::group(['middleware' => 'age'],function(){
-		
+
 	// });
 
 		Route::get('about','IndexController@about');
@@ -26,8 +26,11 @@
 			Route::get('category','IndexController@category');
 			Route::get('create-category','IndexController@create_category_page');
 			Route::post('save-category','IndexController@save');
+			Route::get('delete-category/{id}','IndexController@delete');
+			Route::get('update-category/{id}','IndexController@update_page');
+            Route::post('update-category','IndexController@update');
 		});
-		
+
 
 
 

@@ -13,7 +13,7 @@
             <form class="user" method="post" action="{{action('IndexController@save')}}">
                     @csrf
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" name="name" placeholder="Enter category...">
+                      <input type="text" class="form-control form-control-user" name="name" placeholder="Enter category name...">
                     </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Save
