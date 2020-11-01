@@ -28,13 +28,13 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#">
+        <a class="nav-link collapsed" href="{{action('Admin\BlogController@index')}}">
           <i class="fas fa-fw fa-cog"></i>
           <span>Blog Post</span>
         </a>
       </li>
       <li class="nav-item">
-      <a class="nav-link collapsed" href="{{action('IndexController@category')}}">
+      <a class="nav-link collapsed" href="{{action('Admin\CategoryController@index')}}">
           <i class="fas fa-fw fa-cog"></i>
           <span>Category</span>
         </a>

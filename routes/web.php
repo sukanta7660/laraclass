@@ -12,9 +12,9 @@
 */
 
 		Route::get('/','IndexController@index');
-
+	
 	// Route::group(['middleware' => 'age'],function(){
-
+		
 	// });
 
 		Route::get('about','IndexController@about');
@@ -22,15 +22,25 @@
 		Route::get('blog','IndexController@blog');
 
 		Route::group(['prefix' => 'admin'],function(){
-			Route::get('dashboard','IndexController@admin');
-			Route::get('category','IndexController@category');
-			Route::get('create-category','IndexController@create_category_page');
-			Route::post('save-category','IndexController@save');
-			Route::get('delete-category/{id}','IndexController@delete');
-			Route::get('update-category/{id}','IndexController@update_page');
-            Route::post('update-category','IndexController@update');
-		});
+			Route::get('dashboard','Admin\DashboardController@index');
 
+
+			/*------------------ Blog ------------------*/
+			Route::get('all-blog','Admin\BlogController@index');
+			Route::get('create-blog','Admin\BlogController@create');
+			Route::post('save-blog','Admin\BlogController@save');
+			/*------------------ Blog ------------------*/
+
+			/*------------------ Category ---------------*/
+			Route::get('all-category','Admin\CategoryController@index');
+			Route::get('create-category','Admin\CategoryController@create_category_page');
+			Route::post('save-category','Admin\CategoryController@save');
+			Route::get('delete-category/{id}','Admin\CategoryController@delete');
+			Route::get('update-category/{id}','Admin\CategoryController@update_page');
+			Route::post('update-category','Admin\CategoryController@update');
+			/*------------------ Category ---------------*/
+		});
+		
 
 
 
