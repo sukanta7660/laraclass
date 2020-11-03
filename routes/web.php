@@ -29,6 +29,9 @@
 			Route::get('all-blog','Admin\BlogController@index');
 			Route::get('create-blog','Admin\BlogController@create');
 			Route::post('save-blog','Admin\BlogController@save');
+			Route::get('update-blog/{id}','Admin\BlogController@update_page');
+			Route::post('update-blog','Admin\BlogController@update');
+			Route::get('delete-blog/{id}','Admin\BlogController@delete');
 			/*------------------ Blog ------------------*/
 
 			/*------------------ Category ---------------*/
@@ -39,6 +42,8 @@
 			Route::get('update-category/{id}','Admin\CategoryController@update_page');
 			Route::post('update-category','Admin\CategoryController@update');
 			/*------------------ Category ---------------*/
+
+			//Route::get('category-wise-post','Admin\CategoryController@blogs');
 		});
 		
 
@@ -47,3 +52,7 @@
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

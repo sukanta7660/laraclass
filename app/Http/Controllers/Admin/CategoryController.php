@@ -8,7 +8,10 @@ use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
-   
+//    public function blogs(){
+//        $category = Category::find(3);
+//        return $category->post()->count();
+//    }
     public function index(){
         //query builder
         //$cat = DB::table('categories')->get();

@@ -11,7 +11,10 @@
               <thead class="thead-light">
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Category Name</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Category</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
                   <th class="text-right">Action</th>
                 </tr>
               </thead>
@@ -20,16 +23,22 @@
                     $i = 1;
                 @endphp
 
-                
+                @foreach ($blog as $item)
                     <tr>
-                    <th scope="row">1</th>
-                    <td>hgjkjhghjg</td>
+                    <th scope="row">{{$item->id}}</th>
+                    <td><img src="" alt="blog-image"></td>
+                    <td>{{$item->category['name']}}</td>
+                    <td>{{$item->title}}</td>
+                    <td>{{str_limit($item->description,10,'...')}}</td>
                   <td class="text-right">
-                    <a href="#" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="#" class="btn btn-sm btn-danger">Del</a>
+                  <a href="{{action('Admin\BlogController@update_page',['id' => $item->id])}}" class="btn btn-sm btn-primary">Edit</a> || <a onclick="return confirm('Are you sure to delete?')" href="{{action('Admin\BlogController@delete',['id' => $item->id])}}" class="btn btn-sm btn-danger">Del</a>
                   </td>
                 </tr>
+                @endforeach
+                    
               </tbody>
             </table>
+            {{$blog->links()}}
             </div>
           </div>
 @endsection
