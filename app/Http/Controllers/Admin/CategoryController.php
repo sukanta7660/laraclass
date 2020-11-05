@@ -3,15 +3,16 @@
 namespace App\Http\Controllers\Admin;
 use DB;
 use App\Category;
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
-//    public function blogs(){
-//        $category = Category::find(3);
-//        return $category->post()->count();
-//    }
+   public function category(){
+       $category = Post::with('category','user')->get();
+       return $category;
+   }
     public function index(){
         //query builder
         //$cat = DB::table('categories')->get();

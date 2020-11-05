@@ -43,7 +43,7 @@
 			Route::post('update-category','Admin\CategoryController@update');
 			/*------------------ Category ---------------*/
 
-			//Route::get('category-wise-post','Admin\CategoryController@blogs');
+			Route::get('category-wise-post','Admin\CategoryController@category');
 		});
 		
 

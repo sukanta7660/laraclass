@@ -27,6 +27,9 @@
                     <div class="form-group">
                       <textarea class="form-control" name="description" id="" cols="5" rows="5" placeholder="write a description about the blog..."></textarea>
                     </div>
+                    <div class="form-group">
+                      <input type="file" name="imageName" class="form-control">
+                    </div>
                     <button type="submit" class="btn btn-primary btn-user btn-block">
                       Save
                     </button>

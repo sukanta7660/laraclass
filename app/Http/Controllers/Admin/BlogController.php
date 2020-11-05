@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class BlogController extends Controller
 {
     public function index(){
-        $blog = Post::paginate(2);
+        $blog = Post::paginate(5);
         return view('admin.blog.blog',compact('blog'));
     }
     public function create(){
@@ -22,11 +22,11 @@ class BlogController extends Controller
     public function save(Request $request){
        // return str_slug($request->title,'_');
        //dd($request->all());
+       //return str_slug($request->title,'_');
     $post = new Post();
     $post->title = $request->title;
     $post->description = $request->description;
     $post->category_id = $request->category_id;
-    $post->user_id = Auth::user()->id;
     $post->save();
     //return redirect()->back();
     return redirect()->to('admin/all-blog');
@@ -55,4 +55,5 @@ class BlogController extends Controller
         $post->delete();
         return back();
     }
+    
 }
