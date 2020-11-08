@@ -26,7 +26,13 @@
                 @foreach ($blog as $item)
                     <tr>
                     <th scope="row">{{$item->id}}</th>
-                    <td><img src="" alt="blog-image"></td>
+                    <td>
+                      @if($item->imageName=='default.jpg')
+                      <img width="50" height="40" src="{{asset('public/image/default.jpg')}}" alt="blog-image">
+                      @else
+                      <img width="50" height="40" src="{{asset('public/uploads/blog/'.$item->imageName)}}" alt="blog-image">
+                      @endif
+                    </td>
                     <td>{{$item->category['name']}}</td>
                     <td>{{$item->title}}</td>
                     <td>{{str_limit($item->description,10,'...')}}</td>

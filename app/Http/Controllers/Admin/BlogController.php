@@ -20,13 +20,25 @@ class BlogController extends Controller
     }
 
     public function save(Request $request){
-       // return str_slug($request->title,'_');
-       //dd($request->all());
-       //return str_slug($request->title,'_');
+    //return str_slug($request->title).'_'.md5(date('Y-m-d H:i:s'));
+    //dd($request->all());
     $post = new Post();
     $post->title = $request->title;
     $post->description = $request->description;
     $post->category_id = $request->category_id;
+
+    //img upload
+    if($request->hasFile('imageName')){
+        $extension = $request->imageName->extension();
+        $fileName = str_slug($request->title,'_').'_'.md5(date('Y-m-d H:i:s'));
+        $fileName = $fileName.'.'.$extension;
+
+        $post->imageName = $fileName;
+
+        $request->imageName->move('public/uploads/blog',$fileName);
+
+    }
+
     $post->save();
     //return redirect()->back();
     return redirect()->to('admin/all-blog');
@@ -45,6 +57,23 @@ class BlogController extends Controller
         $post->title = $request->title;
         $post->description = $request->description;
         $post->category_id = $request->category_id;
+
+        $path = public_path('uploads/blog/'.$post->imageName);
+        if(file_exists($path)){
+            unlink($path);
+        }
+        //img upload
+    if($request->hasFile('imageName')){
+        $extension = $request->imageName->extension();
+        $fileName = str_slug($request->title,'_').'_'.md5(date('Y-m-d H:i:s'));
+        $fileName = $fileName.'.'.$extension;
+
+        $post->imageName = $fileName;
+
+        $request->imageName->move('public/uploads/blog',$fileName);
+
+    }
+
         $post->save();
         return redirect()->to('admin/all-blog');
         
@@ -52,6 +81,10 @@ class BlogController extends Controller
 
     public function delete($id){
         $post = Post::find($id);
+        $path = public_path('uploads/blog/'.$post->imageName);
+        if(file_exists($path)){
+            unlink($path);
+        }
         $post->delete();
         return back();
     }

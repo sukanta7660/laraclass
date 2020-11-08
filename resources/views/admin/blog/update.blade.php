@@ -10,7 +10,7 @@
                     <h6 class="m-0 font-weight-bold text-primary">Update Form</h6>
                 </div>
                 <div class="card-body">
-                    <form class="user" method="post" action="{{action('Admin\BlogController@update')}}">
+                    <form class="user" method="post" action="{{action('Admin\BlogController@update')}}" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" value="{{$blog->id}}">
                         <div class="form-group">
@@ -27,6 +27,9 @@
                     </div>
                     <div class="form-group">
                       <textarea class="form-control" name="description" id="" cols="5" rows="5" placeholder="write a description about the blog...">{{$blog->description}}</textarea>
+                    </div>
+                    <div class="form-group">
+                      <input type="file" name="imageName" class="form-control">
                     </div>
                         <button type="submit" class="btn btn-primary btn-user btn-block">
                             Update

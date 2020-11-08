@@ -10,7 +10,7 @@
               <h6 class="m-0 font-weight-bold text-primary">Create Form</h6>
             </div>
             <div class="card-body">
-            <form class="user" method="post" action="{{action('Admin\BlogController@save')}}">
+            <form class="user" method="post" action="{{action('Admin\BlogController@save')}}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
                       <select name="category_id" class="form-control" id="">
