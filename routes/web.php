@@ -13,16 +13,16 @@
 
 		Route::get('/','IndexController@index');
 	
-	// Route::group(['middleware' => 'age'],function(){
-		
-	// });
+	
 
 		Route::get('about','IndexController@about');
 		Route::get('contact','IndexController@contact')->name('contact');
 		Route::get('blog','IndexController@blog');
 
-		Route::group(['prefix' => 'admin'],function(){
-			Route::get('dashboard','Admin\DashboardController@index');
+		Route::group(['middleware' => 'auth'],function(){
+
+			Route::group(['prefix' => 'admin'],function(){
+			Route::get('dashboard','Admin\DashboardController@index')->middleware('admin');
 
 
 			/*------------------ Blog ------------------*/
@@ -44,7 +44,9 @@
 			/*------------------ Category ---------------*/
 
 			Route::get('category-wise-post','Admin\CategoryController@category');
+		});	
 		});
+		
 		
 
 
