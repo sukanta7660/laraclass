@@ -67,12 +67,25 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{{url('contact')}}">Contact</a>
                 </li>
+                @if (isset(Auth::user()->email))
                 <li class="nav-item">
+                <a class="nav-link" href="#">{{Auth::user()->name}}</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                </li>
+                    @else
+                    <li class="nav-item">
                   <a class="nav-link" href="{{url('login')}}">Login</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{url('register')}}">Register</a>
                 </li>
+                @endif
               </ul>
               
             </div>
